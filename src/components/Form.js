@@ -25,7 +25,7 @@ class Form extends React.Component {
               onChange={ onInputChange }
               data-testid="name-input"
             />
-            <input 
+            <input
               data-testid="description-input"
               value={ cardDescription }
               onChange={ onInputChange }
