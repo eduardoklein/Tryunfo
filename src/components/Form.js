@@ -18,42 +18,78 @@ class Form extends React.Component {
     } = this.props;
     return (
       <div>
-        <label>
-          <form>
+        <form>
+          <label htmlFor="cardName">
+            Nome:
             <input
+              id="cardName"
+              type="text"
+              name="cardName"
               value={ cardName }
               onChange={ onInputChange }
               data-testid="name-input"
             />
+          </label>
+          <label htmlFor="cardDescription">
+            Descrição:
             <input
+              id="cardDescription"
+              type="textarea"
+              name="cardDescription"
               data-testid="description-input"
               value={ cardDescription }
               onChange={ onInputChange }
             />
+          </label>
+          <label htmlFor="cardAttr1">
+            Attr1:
             <input
-              data-testid="attr1-input"
+              id="cardAttr1"
               type="number"
+              name="cardAttr1"
+              data-testid="attr1-input"
               value={ cardAttr1 }
               onChange={ onInputChange }
             />
+          </label>
+          <label htmlFor="cardAttr2">
+            Attr2:
             <input
-              data-testid="attr2-input"
+              id="cardAttr2"
               type="number"
+              name="cardAttr2"
+              data-testid="attr2-input"
               value={ cardAttr2 }
               onChange={ onInputChange }
             />
+          </label>
+          <label htmlFor="cardAttr3">
+            Attr3:
             <input
-              data-testid="attr3-input"
+              id="cardAttr3"
               type="number"
+              name="cardAttr3"
+              data-testid="attr3-input"
               value={ cardAttr3 }
               onChange={ onInputChange }
             />
+          </label>
+          <label htmlFor="cardImage">
+            Imagem:
             <input
+              id="cardImage"
+              type="text"
+              name="cardImage"
               data-testid="image-input"
               value={ cardImage }
               onChange={ onInputChange }
             />
+          </label>
+          <label htmlFor="cardRare">
+            Raridade:
             <select
+              name="cardRare"
+              id="cardRare"
               data-testid="rare-input"
               value={ cardRare }
               onChange={ onInputChange }
@@ -62,21 +98,27 @@ class Form extends React.Component {
               <option>raro</option>
               <option>muito raro</option>
             </select>
+          </label>
+          <label htmlFor="cardTrunfo">
+            Trunfo:
             <input
-              checked={ cardTrunfo }
+              id="cardTrunfo"
               type="checkbox"
+              name="cardTrunfo"
+              checked={ cardTrunfo }
               data-testid="trunfo-input"
               onChange={ onInputChange }
             />
-            <button
-              disabled={ isSaveButtonDisabled }
-              onClick={ onSaveButtonClick }
-              data-testid="save-button"
-            >
-              Salvar
-            </button>
-          </form>
-        </label>
+          </label>
+          <button
+            name="isSaveButtonDisabled"
+            disabled={ isSaveButtonDisabled }
+            onClick={ onSaveButtonClick }
+            data-testid="save-button"
+          >
+            Salvar
+          </button>
+        </form>
       </div>
     );
   }
@@ -90,7 +132,7 @@ Form.propTypes = {
   cardAttr2: PropTypes.number.isRequired,
   cardAttr3: PropTypes.number.isRequired,
   cardImage: PropTypes.string.isRequired,
-  cardRare: PropTypes.bool.isRequired,
+  cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,

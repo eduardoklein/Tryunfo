@@ -15,7 +15,6 @@ class Card extends React.Component {
   }
 
   render() {
-    this.handleHasTrunfo();
     const {
       cardName,
       cardDescription,
@@ -27,13 +26,23 @@ class Card extends React.Component {
     } = this.props;
     return (
       <div>
-        <div data-testid="name-card">{ cardName }</div>
-        <img data-testid="image-card" src={ cardImage } alt={ cardName } />
-        <div data-testid="description-card">{ cardDescription }</div>
-        <div data-testid="attr1-card">{ cardAttr1 }</div>
-        <div data-testid="attr2-card">{ cardAttr2 }</div>
-        <div data-testid="attr3-card">{ cardAttr3 }</div>
-        <div data-testid="rare-card">{ cardRare }</div>
+        <div name="cardName" data-testid="name-card">{ cardName }</div>
+        <img
+          name="cardImage"
+          data-testid="image-card"
+          src={ cardImage }
+          alt={ cardName }
+        />
+        <div
+          name="cardDescription"
+          data-testid="description-card"
+        >
+          { cardDescription }
+        </div>
+        <div name="cardAttr1" data-testid="attr1-card">{ cardAttr1 }</div>
+        <div name="cardAttr2" data-testid="attr2-card">{ cardAttr2 }</div>
+        <div name="cardAttr3" data-testid="attr3-card">{ cardAttr3 }</div>
+        <div name="cardRare" data-testid="rare-card">{ cardRare }</div>
         { this.handleHasTrunfo() }
       </div>
     );
@@ -43,9 +52,9 @@ class Card extends React.Component {
 Card.propTypes = {
   cardName: PropTypes.string.isRequired,
   cardDescription: PropTypes.string.isRequired,
-  cardAttr1: PropTypes.string.isRequired,
-  cardAttr2: PropTypes.string.isRequired,
-  cardAttr3: PropTypes.string.isRequired,
+  cardAttr1: PropTypes.number.isRequired,
+  cardAttr2: PropTypes.number.isRequired,
+  cardAttr3: PropTypes.number.isRequired,
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
