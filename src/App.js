@@ -26,7 +26,17 @@ class App extends React.Component {
     });
   };
 
-  callback2 = () => 0;
+  callback2 = () => {
+    this.setState(() => ({
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
+      cardImage: '',
+      cardRare: '',
+    }));
+  };
 
   handleButtonEnable = () => {
     const {
