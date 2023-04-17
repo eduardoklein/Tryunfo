@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import { array } from 'prop-types';
 
 class App extends React.Component {
   constructor() {
@@ -15,7 +16,7 @@ class App extends React.Component {
       cardRare: '',
       cardTrunfo: false,
       isSaveButtonDisabled: true,
-      arrayDeCartas: [{}],
+      arrayDeCartas: [],
     };
   }
 
@@ -139,6 +140,19 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
+        {arrayDeCartas.map((carta, index) => (
+          <Card
+            key={ index }
+            cardName={ carta.cardName }
+            cardDescription={ carta.cardDescription }
+            cardAttr1={ carta.cardAttr1 }
+            cardAttr2={ carta.cardAttr2 }
+            cardAttr3={ carta.cardAttr3 }
+            cardImage={ carta.cardImage }
+            cardRare={ carta.cardRare }
+            cardTrunfo={ carta.cardTrunfo }
+          />
+        ))}
       </div>
     );
   }
