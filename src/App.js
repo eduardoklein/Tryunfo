@@ -21,13 +21,47 @@ class App extends React.Component {
   handleOnChange = ({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    console.log(name, value);
-    this.setState(() => ({
-      [name]: value,
-    }));
+    this.setState(() => ({ [name]: value }), () => {
+      this.handleButtonEnable();
+    });
   };
 
   callback2 = () => 0;
+
+  handleButtonEnable = () => {
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+    } = this.state;
+    const valorMaxAttr = 90;
+    const valorMinAttr = 0;
+    const somaMaxAttr = 210;
+    if (
+      !cardName
+      || !cardImage
+      || !cardDescription
+      || Number(cardAttr1) > valorMaxAttr
+      || Number(cardAttr2) > valorMaxAttr
+      || Number(cardAttr3) > valorMaxAttr
+      || Number(cardAttr1) < valorMinAttr
+      || Number(cardAttr2) < valorMinAttr
+      || Number(cardAttr3) < valorMinAttr
+      || Number(cardAttr1)
+      + Number(cardAttr2)
+      + Number(cardAttr3) > somaMaxAttr) {
+      this.setState(() => ({
+        isSaveButtonDisabled: true,
+      }));
+    } else {
+      this.setState(() => ({
+        isSaveButtonDisabled: false,
+      }));
+    }
+  };
 
   render() {
     const {
