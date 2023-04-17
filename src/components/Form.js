@@ -15,7 +15,10 @@ class Form extends React.Component {
       cardTrunfo,
       isSaveButtonDisabled,
       onSaveButtonClick,
+      arrayDeCartas,
     } = this.props;
+    const hasSuperTrunfo = arrayDeCartas
+    && arrayDeCartas.some((cartas) => cartas.cardTrunfo === true);
     return (
       <div>
         <form>
@@ -102,7 +105,7 @@ class Form extends React.Component {
           <label htmlFor="cardTrunfo">
             Trunfo:
             {
-              cardTrunfo
+              hasSuperTrunfo
                 ? <p>Você já tem um Super Trunfo em seu baralho</p>
                 : (
                   <input
@@ -142,6 +145,7 @@ Form.propTypes = {
   cardTrunfo: PropTypes.bool.isRequired,
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
+  arrayDeCartas: PropTypes.arrayOf.isRequired,
 };
 
 export default Form;

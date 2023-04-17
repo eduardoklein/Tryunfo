@@ -15,6 +15,7 @@ class App extends React.Component {
       cardRare: '',
       cardTrunfo: false,
       isSaveButtonDisabled: true,
+      arrayDeCartas: [{}],
     };
   }
 
@@ -26,7 +27,31 @@ class App extends React.Component {
     });
   };
 
-  handleResetInputs = () => {
+  handleSaveAndResetInputs = (event) => {
+    event.preventDefault();
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+    } = this.state;
+    const cartaObj = {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+    };
+    this.setState((estadoAnterior) => ({
+      arrayDeCartas: [...estadoAnterior.arrayDeCartas, cartaObj],
+    }));
     this.setState(() => ({
       cardName: '',
       cardDescription: '',
@@ -85,6 +110,7 @@ class App extends React.Component {
       cardTrunfo,
       hasTrunfo,
       isSaveButtonDisabled,
+      arrayDeCartas,
     } = this.state;
     return (
       <div>
@@ -100,7 +126,8 @@ class App extends React.Component {
           hasTrunfo={ hasTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onInputChange={ this.handleOnChange }
-          onSaveButtonClick={ this.handleResetInputs }
+          onSaveButtonClick={ this.handleSaveAndResetInputs }
+          arrayDeCartas={ arrayDeCartas }
         />
         <Card
           cardName={ cardName }
