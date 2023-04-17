@@ -26,7 +26,7 @@ class App extends React.Component {
     });
   };
 
-  callback2 = () => {
+  handleResetInputs = () => {
     this.setState(() => ({
       cardName: '',
       cardDescription: '',
@@ -91,23 +91,23 @@ class App extends React.Component {
         <Form
           cardName={ cardName }
           cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
+          cardAttr1={ +cardAttr1 }
+          cardAttr2={ +cardAttr2 }
+          cardAttr3={ +cardAttr3 }
           cardImage={ cardImage }
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
           hasTrunfo={ hasTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onInputChange={ this.handleOnChange }
-          onSaveButtonClick={ this.callback2 }
+          onSaveButtonClick={ this.handleResetInputs }
         />
         <Card
           cardName={ cardName }
           cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
+          cardAttr1={ +cardAttr1 }
+          cardAttr2={ +cardAttr2 }
+          cardAttr3={ +cardAttr3 }
           cardImage={ cardImage }
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
