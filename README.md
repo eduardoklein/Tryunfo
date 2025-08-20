@@ -8,9 +8,6 @@ Bem-vindo ao repositório do projeto **Tryunfo**!
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Instalação](#instalação)
 - [Como Usar](#como-usar)
-- [Contribuição](#contribuição)
-- [Licença](#licença)
-- [Contato](#contato)
 
 ## Sobre o Projeto
 
@@ -47,22 +44,3 @@ O Tryunfo é um projeto desenvolvido para praticar conceitos de React, manipula�
 - Crie novas cartas preenchendo o formulário.
 - Visualize as cartas criadas.
 - Jogue partidas utilizando as cartas disponíveis.
-
-## Contribuição
-
-Contribuições são bem-vindas! Siga os passos abaixo:
-
-1. Fork este repositório.
-2. Crie uma branch com sua feature:
-   ```bash
-   git checkout -b minha-feature
-   ```
-3. Faça commit das suas alterações:
-   ```bash
-   git commit -m 'Adiciona nova feature'
-   ```
-4. Faça push para a branch:
-   ```bash
-   git push origin minha-feature
-   ```
-5. Abra um Pull Request.
